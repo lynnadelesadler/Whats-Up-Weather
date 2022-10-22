@@ -7,8 +7,8 @@ var searchFormEl = document.querySelector("#search-form");
 var searchInputEl = document.querySelector("#city");
 var searchContainerEl = document.querySelector("#search-history");
 var cityTodayEL = document.querySelector("#city-today");
-var dateTodayEl = document.querySelector ("cardTodayDate");
-var cardBodyToday = document.querySelector ("cardBodyToday");
+var dateTodayEl = document.querySelector("cardTodayDate");
+var cardBodyToday = document.querySelector("cardBodyToday");
 var forecastEL = document.querySelector("#five-day-container");
 
 //Grabs the current time and date
