@@ -12,6 +12,6 @@ var cardBodyToday = document.querySelector("cardBodyToday");
 var forecastEL = document.querySelector("#five-day-container");
 
 //Grabs the current time and date
-var date = moment().format("dddd, MMMM Do YYYY");
-var dateTime = moment().format("YYYY-MM-DD HH:MM:SS");
+var date = moment().format("MM-DD-YY");
+
 
