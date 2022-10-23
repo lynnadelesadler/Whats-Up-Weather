@@ -154,10 +154,18 @@ var displayWeather = function (city, weather) {
     return;
   }
 
+  
+
+
   //Update Title Weather Today in "City"
   cityTodayEL.textContent = " in " + city;
   // Transfer Current Weather content to HTML and retrieve and display icon from weather API
   $(".cardTodayDate").html("<h3>" + date + "</h3>");
+  var iconCode = weather.current.weather[0].icon;
+  console.log(iconCode)
+  var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  var icon = $("<img>").attr("src", iconURL);
+  $("#weatherIcon").html(icon);
   $(".temperature").text("Temp: " + weather.current.temp + " %");
   $(".humidity").text("Humidity: " + weather.current.humidity + " %");
   $(".windSpeed").text("Wind Speed: " + weather.current.wind_speed + " mph");
@@ -170,15 +178,13 @@ var displayWeather = function (city, weather) {
 
   for (var i = 0; i < weather.daily.length; i++) {
     weather.daily[i];
-    $("#" + i + "dayTemperature").text(
-      "Temp: " + weather.daily[i].temp.day + " %"
-    );
-    $("#" + i + "dayHumidity").text(
-      "Humidity: " + weather.daily[i].humidity + " %"
-    );
-    $("#" + i + "dayWindSpeed").text(
-      "Wind Speed: " + weather.daily[i].wind_speed + " mph"
-    );
+    var iconCode = weather.daily[i].weather[0].icon;
+    var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var icon = $("<img>").attr("src", iconURL);
+    $("#" + i + "dayIcon").html(icon);
+    $("#" + i + "dayTemperature").text("Temp: " + weather.daily[i].temp.day + " %");
+    $("#" + i + "dayHumidity").text("Humidity: " + weather.daily[i].humidity + " %");
+    $("#" + i + "dayWindSpeed").text( "Wind Speed: " + weather.daily[i].wind_speed + " mph" );
   }
 };
 
