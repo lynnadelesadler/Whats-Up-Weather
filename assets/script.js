@@ -176,16 +176,22 @@ var displayWeather = function (city, weather) {
 
   // Retrieves and displays 5 Day Weather Forecast and associated icon
 
-  for (var i = 0; i < weather.daily.length; i++) {
+  for (var i = 0; i < weather.daily.length; i++){
     weather.daily[i];
     var iconCode = weather.daily[i].weather[0].icon;
     var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
     var icon = $("<img>").attr("src", iconURL);
     $("#" + i + "dayIcon").html(icon);
-    $("#" + i + "dayTemperature").text("Temp: " + weather.daily[i].temp.day + " %");
-    $("#" + i + "dayHumidity").text("Humidity: " + weather.daily[i].humidity + " %");
-    $("#" + i + "dayWindSpeed").text( "Wind Speed: " + weather.daily[i].wind_speed + " mph" );
+    $("#" + i + "dayTemperature").append("Temp: " + weather.daily[i].temp.day + " %");
+    $("#" + i + "dayHumidity").append("Humidity: " + weather.daily[i].humidity + " %");
+    $("#" + i + "dayWindSpeed").append("Wind Speed: " + weather.daily[i].wind_speed + " mph" );
   }
+
+  /*for (var i=0; i < 6; i++){
+  var tomorrow = date[i];
+  $("#" + i + "dayForecast").text(tomorrow);
+  }*/
+
 };
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
