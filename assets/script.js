@@ -158,7 +158,7 @@ var displayWeather = function (city, weather) {
   cityTodayEL.textContent = " in " + city;
   // Transfer Current Weather content to HTML and retrieve and display icon from weather API
   $(".cardTodayDate").html("<h3>" + date + "</h3>");
-  $(".temperature").text("Temperature: " + weather.current.temp + " %");
+  $(".temperature").text("Temp: " + weather.current.temp + " %");
   $(".humidity").text("Humidity: " + weather.current.humidity + " %");
   $(".windSpeed").text("Wind Speed: " + weather.current.wind_speed + " mph");
 
@@ -171,13 +171,13 @@ var displayWeather = function (city, weather) {
   for (var i = 0; i < weather.daily.length; i++) {
     weather.daily[i];
     $("#" + i + "dayTemperature").text(
-      "Temperature: " + weather.daily.temp + " %"
+      "Temp: " + weather.daily[i].temp.day + " %"
     );
     $("#" + i + "dayHumidity").text(
-      "Humidity: " + weather.daily.humidity + " %"
+      "Humidity: " + weather.daily[i].humidity + " %"
     );
     $("#" + i + "dayWindSpeed").text(
-      "Wind Speed: " + weather.daily.wind_speed + " mph"
+      "Wind Speed: " + weather.daily[i].wind_speed + " mph"
     );
   }
 };
