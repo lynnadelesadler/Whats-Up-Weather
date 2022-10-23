@@ -182,9 +182,9 @@ var displayWeather = function (city, weather) {
     var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
     var icon = $("<img>").attr("src", iconURL);
     $("#" + i + "dayIcon").html(icon);
-    $("#" + i + "dayTemperature").append("Temp: " + weather.daily[i].temp.day + " %");
-    $("#" + i + "dayHumidity").append("Humidity: " + weather.daily[i].humidity + " %");
-    $("#" + i + "dayWindSpeed").append("Wind Speed: " + weather.daily[i].wind_speed + " mph" );
+    $("#" + i + "dayTemperature").text("Temp: " + weather.daily[i].temp.day + " %");
+    $("#" + i + "dayHumidity").text("Humidity: " + weather.daily[i].humidity + " %");
+    $("#" + i + "dayWindSpeed").text("Wind Speed: " + weather.daily[i].wind_speed + " mph" );
   }
 
   /*for (var i=0; i < 6; i++){
