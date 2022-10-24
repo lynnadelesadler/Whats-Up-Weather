@@ -18,34 +18,29 @@ var date = moment().format("MM-DD-YY");
 var searchedCitiesArray =
   JSON.parse(localStorage.getItem("searchHistory")) || [];
 console.log(searchedCitiesArray);
-// for loop that is the searchedCitiesArray.length
-// make a button for each city in the list and assign it a class (to use in event listener below )
-// make the inner.html the name of the city
-// append the button to the search-list div
-// end the for loop
 
-for (var i = 0; i < searchedCitiesArray.length; i++) {
-  searchedCitiesArray[i];
+var renderCityList = function () {
 
-  var li = document.createElement("li");
-  li.classList.add(".list-item");
-  var button = document.createElement("button");
-  li.setAttribute("button", i);
-  button.classList.add('btn');
-    button.textContent = (searchedCitiesArray[i]);
+  searchContainerEl.innerHTML = ""
+  for (var i = 0; i < searchedCitiesArray.length; i++) {
+    console.log(searchedCitiesArray[i]);
+    var li = document.createElement("li");
+    li.classList.add(".list-item");
+    var button = document.createElement("button");
+    li.setAttribute("button", i);
+    button.classList.add("btn");
+    button.setAttribute("data-search", searchedCitiesArray[i]);
+    button.textContent = searchedCitiesArray[i];
     searchContainerEl.appendChild(button);
-   
+  }
 };
 
-// need a function that will get the weather when you click the button
-// use event lister tied to the class of the button to get the weather
-// look to the button text 
-// call the get city variable to get the function
+var searchContainerClickHandler = function (event) {
+  var search = event.target.getAttribute('data-search');
+  getCity(search);
+};
 
-// Listen for any clicks within the img-container div
-/*searchContainerEl.addEventListener("click", function(event) {
-  var element = event.target;*/
-
+   
 
 // ******************************************* GET WEATHER API CALL ******************************************* //
 
@@ -62,7 +57,7 @@ var formSubmitHandler = function (event) {
   console.log(JSON.stringify(searchedCitiesArray));
   if (city) {
     getCity(city);
-
+    renderCityList();
     cityTodayEL.textContent = "";
     searchInputEl.value = "";
   } else {
@@ -123,12 +118,7 @@ var displayWeather = function (city, weather) {
   $(".humidity").text("Humidity: " + weather.current.humidity + " %");
   $(".windSpeed").text("Wind Speed: " + weather.current.wind_speed + " mph");
 
-  // weather
-  // weather.current <== object, weather.current.temp, weather.current.uvi
-  // weather.daily <= array, weather.daily[0].temp
-
   // Retrieves and displays 5 Day Weather Forecast and associated icon
-
   for (var i = 0; i < weather.daily.length; i++) {
     weather.daily[i];
     var iconCode = weather.daily[i].weather[0].icon;
@@ -145,8 +135,8 @@ var displayWeather = function (city, weather) {
       "Wind Speed: " + weather.daily[i].wind_speed + " mph"
     );
     //to input date
-      $("#" + i + "dayForecast").text(date);
-  };
+    $("#" + i + "dayForecast").text(date);
+  }
 
   /* for (var d = 0; d < 6; d++){
       var tomorrow = date[d];
@@ -155,5 +145,4 @@ var displayWeather = function (city, weather) {
 };
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
-//Use for historical city search
-//submitBtn.addEventListener("click", getCity);
+searchContainerEl.addEventListener("click", searchContainerClickHandler)
