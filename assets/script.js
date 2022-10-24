@@ -26,16 +26,25 @@ console.log(searchedCitiesArray);
 
 for (var i = 0; i < searchedCitiesArray.length; i++) {
   searchedCitiesArray[i];
+
+  var li = document.createElement("li");
+  li.classList.add(".list-item");
   var button = document.createElement("button");
-    button.textContent = (searchInputEl);
-    button.innerHTML = (searchInputEl);
+  li.setAttribute("button", i);
+  button.classList.add('btn');
+    button.textContent = (searchedCitiesArray[i]);
     searchContainerEl.appendChild(button);
+   
 };
 
 // need a function that will get the weather when you click the button
 // use event lister tied to the class of the button to get the weather
 // look to the button text 
 // call the get city variable to get the function
+
+// Listen for any clicks within the img-container div
+/*searchContainerEl.addEventListener("click", function(event) {
+  var element = event.target;*/
 
 
 // ******************************************* GET WEATHER API CALL ******************************************* //
@@ -80,7 +89,7 @@ var getCity = function (city) {
   });
 };
 var fiveDayWeather = function (city, lat, lon) {
-  var fiveDayURL = `http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${APIKey}`;
+  var fiveDayURL = `http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&outputDateTimeFormat=datetimeStr&appid=${APIKey}`;
   fetch(fiveDayURL).then(function (response) {
     if (response.ok) {
       //  console.log(response);
