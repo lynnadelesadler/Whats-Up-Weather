@@ -5,7 +5,7 @@ var city;
 // HTML variables
 var searchFormEl = document.querySelector("#search-form");
 var searchInputEl = document.querySelector("#city");
-var searchContainerEl = document.querySelector("#search-history");
+var searchContainerEl = document.querySelector("#search-list");
 var cityTodayEL = document.querySelector("#city-today");
 var dateTodayEl = document.querySelector("cardTodayDate");
 var cardBodyToday = document.querySelector("cardBodyToday");
@@ -18,6 +18,25 @@ var date = moment().format("MM-DD-YY");
 var searchedCitiesArray =
   JSON.parse(localStorage.getItem("searchHistory")) || [];
 console.log(searchedCitiesArray);
+// for loop that is the searchedCitiesArray.length
+// make a button for each city in the list and assign it a class (to use in event listener below )
+// make the inner.html the name of the city
+// append the button to the search-list div
+// end the for loop
+
+for (var i = 0; i < searchedCitiesArray.length; i++) {
+  searchedCitiesArray[i];
+  var button = document.createElement("button");
+    button.textContent = (searchInputEl);
+    button.innerHTML = (searchInputEl);
+    searchContainerEl.appendChild(button);
+};
+
+// need a function that will get the weather when you click the button
+// use event lister tied to the class of the button to get the weather
+// look to the button text 
+// call the get city variable to get the function
+
 
 // ******************************************* GET WEATHER API CALL ******************************************* //
 
@@ -117,13 +136,13 @@ var displayWeather = function (city, weather) {
       "Wind Speed: " + weather.daily[i].wind_speed + " mph"
     );
     //to input date
-    $("#" + i + "dayForecast").text(date);
-  }
+      $("#" + i + "dayForecast").text(date);
+  };
 
-  /*for (var i=0; i < 6; i++){
-  var tomorrow = date[i];
-  $("#" + i + "dayForecast").text(tomorrow);
-  }*/
+  /* for (var d = 0; d < 6; d++){
+      var tomorrow = date[d];
+      $("#" + i + "dayForecast").text(tomorrow);
+      };*/
 };
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
