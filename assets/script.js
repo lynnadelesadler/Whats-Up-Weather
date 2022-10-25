@@ -20,8 +20,7 @@ var searchedCitiesArray =
 console.log(searchedCitiesArray);
 
 var renderCityList = function () {
-
-  searchContainerEl.innerHTML = ""
+  searchContainerEl.innerHTML = "";
   for (var i = 0; i < searchedCitiesArray.length; i++) {
     console.log(searchedCitiesArray[i]);
     var li = document.createElement("li");
@@ -36,11 +35,9 @@ var renderCityList = function () {
 };
 
 var searchContainerClickHandler = function (event) {
-  var search = event.target.getAttribute('data-search');
+  var search = event.target.getAttribute("data-search");
   getCity(search);
 };
-
-   
 
 // ******************************************* GET WEATHER API CALL ******************************************* //
 
@@ -135,13 +132,9 @@ var displayWeather = function (city, weather) {
       "Wind Speed: " + weather.daily[i].wind_speed + " mph"
     );
     //to input date
-    $("#" + i + "dayForecast").text(date);
+    $("#" + i + "dayForecast").text(moment().add(i, "days").format("MM-DD-YY"));
   }
-
-  /* for (var i = 0; i < 6; i++){
-      $("#" + i + "dayForecast").text(date);
-      };*/
 };
 
 searchFormEl.addEventListener("submit", formSubmitHandler);
-searchContainerEl.addEventListener("click", searchContainerClickHandler)
+searchContainerEl.addEventListener("click", searchContainerClickHandler);

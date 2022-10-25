@@ -1,46 +1,73 @@
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
+# Whats-Up-Weather
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+Whats Up Weather uses a third party API from Open Weather to request weather data from cities searched. Users will be able to search for a city and see the current weather in addition to the five day forecast. A users search history is saved in local storage and added to a search history list as a button which can render the search data for that city.  
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Access
+
+<!-- Deployed weblink-->
+
+The Whats Up Weather webpage can be accessed at the following URL...
+
+https://lynnadelesadler.github.io/Whats-Up-Weather/
+
+The URL of the GitHub repository ...
+
+https://github.com/lynnadelesadler/Whats-Up-Weather
 
 ## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+<!-- Provide the visuals for full display and phone display -->
+This is how the deployed Whats Up Weather website will look on a full display computer screen.
+![Whats Up Weather homepage](./assets/Image/desktop-homepage.png)
+
+
+This is how the deployed Whats Up Weather website will look on a cell phone.
+![Whats Up Weather homepage](./assets/Image/cell-homepage.png)
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+- When a user opens the Whats Up Weather website a search bar is available.
+
+  - Type in any City to render the weather.
+
+- The current weather conditions for the city will display with the values of...
+    - date
+    - temperature
+    - humidity
+    - wind speed
+    - weather condition icon
+
+- The five day forecast for that city will also display below the current weather conditions showing the values of...
+    - date
+    - temperature
+    - humidity
+    - wind speed
+    - weather condition icon
+
+- Each City that is searched will be saved to local storage and added to a Search History list.
+  - Each city in the search history list has an attribute of a button.
+  - When the City button is clicked the weather forecast will render to the page again. 
+
+_Here you will see a demonstration on how the Whats Up Weather website works._
+
+![Homepage GIF](./assets/Image/Weather%20Dashboard.gif)
 
 ## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+For help with this webpage please contact
+|Name | Email |
+|-----------|---------------------------|
+|Lynn Sadler| lynnadelesadler@yahoo.com |
 
 ## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Check back to this page as enhancements could be made for usability and optimized display.
 
 ## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Some HTML and CSS credit to be given to © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. as I referenced some of our class activities as a start to build upon my project. 
+
+Primary credit to be given to Lynn Sadler JavaScript file optimized and enhanced code credit credit given to Lynn Sadler.
+
+Acknowledgement to Uconn Full Stack Web Developer Bootcamp, Teachers and Teacher assistants for supporting me on my developer journey!
+
+Acknowledgment to third party API from Open Weather for providing the data we are searching for. 
 
 ## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+N/A
