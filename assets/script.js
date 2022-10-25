@@ -64,7 +64,7 @@ var formSubmitHandler = function (event) {
 
 var getCity = function (city) {
   var queryURL =
-    "http://api.openweathermap.org/data/2.5/weather?q=" +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
     city +
     "&appid=" +
     APIKey;
@@ -81,7 +81,7 @@ var getCity = function (city) {
   });
 };
 var fiveDayWeather = function (city, lat, lon) {
-  var fiveDayURL = `http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${APIKey}`;
+  var fiveDayURL = `https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${APIKey}`;
   fetch(fiveDayURL).then(function (response) {
     if (response.ok) {
       //  console.log(response);
