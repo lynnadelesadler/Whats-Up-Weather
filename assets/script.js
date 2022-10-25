@@ -84,7 +84,7 @@ var getCity = function (city) {
   });
 };
 var fiveDayWeather = function (city, lat, lon) {
-  var fiveDayURL = `http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&outputDateTimeFormat=datetimeStr&appid=${APIKey}`;
+  var fiveDayURL = `http://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=${APIKey}`;
   fetch(fiveDayURL).then(function (response) {
     if (response.ok) {
       //  console.log(response);
@@ -118,7 +118,7 @@ var displayWeather = function (city, weather) {
   $(".humidity").text("Humidity: " + weather.current.humidity + " %");
   $(".windSpeed").text("Wind Speed: " + weather.current.wind_speed + " mph");
 
-  // Retrieves and displays 5 Day Weather Forecast and associated icon
+  // Retrieves and displays 5 Day Weather Forecast and weather icon
   for (var i = 0; i < weather.daily.length; i++) {
     weather.daily[i];
     var iconCode = weather.daily[i].weather[0].icon;
@@ -138,9 +138,8 @@ var displayWeather = function (city, weather) {
     $("#" + i + "dayForecast").text(date);
   }
 
-  /* for (var d = 0; d < 6; d++){
-      var tomorrow = date[d];
-      $("#" + i + "dayForecast").text(tomorrow);
+  /* for (var i = 0; i < 6; i++){
+      $("#" + i + "dayForecast").text(date);
       };*/
 };
 
