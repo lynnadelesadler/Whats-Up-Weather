@@ -108,7 +108,7 @@ var displayWeather = function (city, weather) {
   $(".cardTodayDate").html("<h3>" + date + "</h3>");
   var iconCode = weather.current.weather[0].icon;
   console.log(iconCode);
-  var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+  var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
   var icon = $("<img>").attr("src", iconURL);
   $("#weatherIcon").html(icon);
   $(".temperature").text("Temp: " + weather.current.temp + " %");
@@ -119,7 +119,7 @@ var displayWeather = function (city, weather) {
   for (var i = 0; i < weather.daily.length; i++) {
     weather.daily[i];
     var iconCode = weather.daily[i].weather[0].icon;
-    var iconURL = "http://openweathermap.org/img/w/" + iconCode + ".png";
+    var iconURL = "https://openweathermap.org/img/w/" + iconCode + ".png";
     var icon = $("<img>").attr("src", iconURL);
     $("#" + i + "dayIcon").html(icon);
     $("#" + i + "dayTemperature").text(
